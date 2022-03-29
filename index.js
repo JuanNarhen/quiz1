@@ -4,8 +4,11 @@ const app = express();
 const mongoose = require('mongoose');
 const port = process.env.PORT;
 const routerApi = require('./src/routes');
+const { logErrors, errorHandler } = require('./src/middlewares/error.handler');
 
 app.use(express.json());
+app.use(logErrors);
+app.use(errorHandler);
 
 app.listen(port, () => console.log('Connected by port ', port));
 

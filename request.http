@@ -1,48 +1,26 @@
 ###
-POST http://localhost:50000/api/v1/clients/client HTTP/1.1
+POST http://localhost:50000/api/v2/clients/bill HTTP/1.1
 Content-Type: application/json
 
 {
-  "client_name": "Yaneth",
-  "address":[{
-    "city": "Manizales",
-    "code_zip":"170002",
-    "geo":[{
-      "lat": -4.5985,
-      "long": 0.2733
-    }]
-  }],
-  "contact":{
-    "email":"ymejia@umanizales.edu.co",
-    "cellphone": "30454558**"
-  }
+  "client_name": "test2",
+  "dni": "1238"
 }
 
 ###
-GET http://localhost:50000/api/v1/clients/ HTTP/1.1
+GET http://localhost:50000/api/v2/clients/ HTTP/1.1
 
 ###
-GET http://localhost:50000/api/v1/clients/623763ceba850d2bf7b633eb HTTP/1.1
+GET http://localhost:50000/api/v2/clients/62426f779eeb2b2892723e21 HTTP/1.1
 
 ###
-PUT http://localhost:50000/api/v1/clients/623763ceba850d2bf7b633eb HTTP/1.1
+PUT http://localhost:50000/api/v2/clients/62426f779eeb2b2892723e21 HTTP/1.1
 Content-Type: application/json
 
 {
-  "client_name": "Yaneth Mejia",
-  "address":[{
-    "city": "Manizales",
-    "code_zip":"170002",
-    "geo":[{
-      "lat": -4.5985,
-      "long": 0.2733
-    }]
-  }],
-  "contact":{
-    "email":"ymejia@umanizales.edu.co",
-    "cellphone": "30454558**"
-  }
+  "client_name": "juan naranjo",
+  "dni": "1234"
 }
 
 ###
-DELETE http://localhost:50000/api/v1/clients/623763ceba850d2bf7b633eb HTTP/1.1
+DELETE http://localhost:50000/api/v2/clients/62426f779eeb2b2892723e21  HTTP/1.1
