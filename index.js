@@ -1,20 +1,21 @@
-require('dotenv').config();
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
-const port = process.env.PORT;
-const routerApi = require('./src/routes');
-const { logErrors, errorHandler } = require('./src/middlewares/error.handler');
+require('dotenv').config();
+const routerApi = require('../routes');
 
-app.use(express.json());
-app.use(logErrors);
-app.use(errorHandler);
+const {errorLog, errorHandler, boomErrorHandler} = require('../middlewares/handlers/error.handler');
 
-app.listen(port, () => console.log('Connected by port ', port));
+const app = express.Router();
 
-mongoose
-  .connect(process.env.MONGO)
-  .then(() => console.log('success connection to mongo'))
+app.listen(process.env.PORT, console.log(`Listenning by port ${process.env.PORT}`));
+
+mongoose.connect(process.env.MONGO)
+  .then(() => console.log('connected with mongo'))
   .catch((error) => console.error(error));
+
+app.use(errorLog);
+app.use(errorHandler);
+app.use(boomErrorHandler);
+app.use(express.json());
 
 routerApi(app);

@@ -1,10 +1,10 @@
 const express = require('express');
-const bill_client_router = require('./bill_client.router');
+const series_routes = require('./series_tv.route');
 
-function routerApi(app){
+const routerApi = (app) => {
   const dynamic_routes = express.Router();
   app.use('/api/v2', dynamic_routes);
-  dynamic_routes.use('/clients', bill_client_router)
-}
+  dynamic_routes.use('/series', series_routes);
+};
 
 module.exports = routerApi;
