@@ -1,11 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
-const routerApi = require('../routes');
+const routerApi = require('./src/routes');
 
-const {errorLog, errorHandler, boomErrorHandler} = require('../middlewares/handlers/error.handler');
+const {errorLog, errorHandler, boomErrorHandler} = require('./src/middlewares/handlers/error.handler');
 
-const app = express.Router();
+const app = express();
 
 app.listen(process.env.PORT, console.log(`Listenning by port ${process.env.PORT}`));
 

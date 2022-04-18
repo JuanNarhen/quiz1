@@ -2,7 +2,7 @@ const express = require('express');
 const boom = require('@hapi/boom');
 const series_schema = require('../models/series_tv.model');
 const series_service = require('../services/series_tv.service');
-const _service = SeriesService();
+const _service = new series_service();
 const series_routes = express.Router();
 
 series_routes.post('/serie', async(req, res) => {
